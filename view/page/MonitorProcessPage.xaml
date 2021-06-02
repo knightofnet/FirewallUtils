@@ -1,0 +1,51 @@
+﻿<Page x:Class="PocFwIpApp.view.page.MonitorProcessPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PocFwIpApp.view.page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="560"
+      Title="MonitorProcessPage" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="gbRuleProcessToMonitor" Header="Règles à surveiller" Margin="10,10,0.4,81.6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="listProcessToMonitor" Margin="10,66,10,10.2" MouseDoubleClick="listProcessToMonitor_MouseDoubleClick"/>
+                <CheckBox x:Name="cbEnableMonitorProcess" Margin="10,10,9.8,0" VerticalAlignment="Top" IsChecked="True">
+                    <AccessText TextWrapping="Wrap" Text="Surveiller les règles autorisant les adresses IP"/>
+                </CheckBox>
+
+
+            </Grid>
+        </GroupBox>
+
+        <Grid x:Name="gridEdit" Grid.Column="1" Margin="0,0,0,0">
+
+            <Label x:Name="label" Content="Nom de la règle :" Grid.Column="1" HorizontalAlignment="Left" Margin="9.6,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbRuleName" Grid.Column="1" Height="23" Margin="9.6,35,10,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" IsReadOnly="True"/>
+
+            <Label x:Name="label1" Content="Programme lié :" Grid.Column="1" HorizontalAlignment="Left" Margin="9.6,63,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tFilepath" Grid.Column="1" Height="23" Margin="10.6,88,10,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top"/>
+
+            <Label x:Name="label2" Content="Processus : " Grid.Column="1" HorizontalAlignment="Left" Margin="10.6,116,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblProcEnable" Content="désactivé" Grid.Column="1" HorizontalAlignment="Left" Margin="80.6,116,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Grid.Column="1" HorizontalAlignment="Left" Margin="144.6,116,0,0" VerticalAlignment="Top">
+                <Hyperlink>Réveler dans l'explorateur</Hyperlink>
+            </Label>
+
+
+            <CheckBox x:Name="cIsModeManuel" Content="Mode manuel" Grid.Column="1" HorizontalAlignment="Left" Margin="10.6,194,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cIsEnableFilenameOnly" Content="Activer avec le nom du fichier seulement" Grid.Column="1" HorizontalAlignment="Left" Margin="107.6,194,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+    </Grid>
+</Page>

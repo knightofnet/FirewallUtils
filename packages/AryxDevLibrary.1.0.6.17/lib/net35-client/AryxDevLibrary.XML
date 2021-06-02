@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AryxDevLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:AryxDevLibrary.extensions.DateUtilsExt">
+            <summary>
+            Extensions methods for DateUtils object.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the last date of month of a date.
+            </summary>
+            <param name="date">the date</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the first date of month of a date.
+            </summary>
+            <param name="date">the date</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.IsAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Test if a DateTime object is After an other.
+            </summary>
+            <param name="date">the date to test is after</param>
+            <param name="anotherDate">anotherDate</param>
+            <returns>true if date is after anotehrDate. False if not, or equals</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.IsBefore(System.DateTime,System.DateTime)">
+            <summary>
+            Test if a DateTime object is before an other.
+            </summary>
+            <param name="date">the date to test is before</param>
+            <param name="anotherDate">anotherDate</param>
+            <returns>true if date is before anothe rDate. False if not, or equals</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.ChangeDate(System.DateTime,System.DateTime)">
+            <summary>
+            Return a new instance of DateTime, with date part (year, month, day) taken form another DateTime. Time preserved from original.
+            </summary>
+            <param name="dateTime">the input DateTime</param>
+            <param name="newDate">the new DateTime to take date part</param>
+            <returns>A new instance of DateTime, with date part (year, month, day)</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.ChangeTime(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Change time part of a DateTime object.
+            </summary>
+            <param name="dateTime">input DateTime object</param>
+            <param name="hours">new hour to set</param>
+            <param name="minutes">new minute to set</param>
+            <param name="seconds">new seconde to set</param>
+            <param name="milliseconds">new millisecond to set</param>
+            <returns>A new DateTime object, with time part changed</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.DateUtilsExt.ChangeTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            Change time part of a DateTime object.
+            </summary>
+            <param name="dateTime">input DateTime object</param>
+            <param name="ts">the TimeSpan object to take time part</param>
+            <returns>A new DateTime object, with time part changed</returns>
+        </member>
+        <member name="T:AryxDevLibrary.extensions.StringUtilsExt">
+            <summary>
+            Extension methods for the String class. Generaly refers to StringUtils.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.SplitByStr(System.String,System.String)">
+            <summary>
+            Split a string by another string
+            </summary>
+            <param name="strToSplit">the string to split</param>
+            <param name="splitStr">the string use to split</param>
+            <returns>an array of strings splitted</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.FirstUpperOtherLower(System.String)">
+            <summary>
+            Capitalize the first letter and lower the others.
+            </summary>
+            <param name="str">this string</param>
+            <returns>The string with the first letter upped and lowered the others</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.IsEmpty(System.String)">
+            <summary>
+            Test if the string is empty.
+            </summary>
+            <param name="value">this string</param>
+            <returns>true if empty (lenght = 0 or ""), false or not.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncate the string.
+            </summary>
+            <param name="str">the string to truncate</param>
+            <param name="limit">le lenght to truncate</param>
+            <returns>Returns the truncated string, or the complete string if the limit is greater than or equal to the length of the input string.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.ReplaceFirst(System.String,System.String,System.String)">
+            <summary>
+            Replace the first occurence of a substring in a string.
+            </summary>
+            <param name="str">The string in which to search</param>
+            <param name="search">The substring to search for</param>
+            <param name="replace">The replacement</param>
+            <returns>The string with replacement done if exists.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.RemoveDiacritics(System.String)">
+            <summary>
+            Remove diacritics acent in a string.
+            Source : https://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
+            </summary>
+            <param name="text">the string</param>
+            <returns>the string without diacritics accents</returns>
+        </member>
+        <member name="M:AryxDevLibrary.extensions.StringUtilsExt.Matches(System.String,System.String)">
+            <summary>
+            Tells whether or not this string matches the given regular expression.
+            </summary>
+            <param name="text">the input string to test</param>
+            <param name="regex">the regular expression to which this string is to be matched</param>
+            <returns>true if, and only if, this string matches the given regular expression</returns>
+        </member>
+        <member name="T:AryxDevLibrary.utils.BooleansList">
+            <summary>
+            Liste de booléens. Permet d'utiliser des méthodes les méthodes And() et Or().
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.BooleansList.List">
+            <summary>
+            Liste de boolean. Initialisée avec l'instance.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.BooleansList.Add(System.Boolean)">
+            <summary>
+            Permet d'ajouter un booléen à la liste
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.BooleansList.And">
+            <summary>
+            Détermine si tous les éléments sont true.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.BooleansList.Or">
+            <summary>
+            Déterminer s'il existe au moins un élément à true.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.BooleansList.CountTrue">
+            <summary>
+            Compte les éléments à true.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.BooleansList.CountFalse">
+            <summary>
+            Compte les éléments à false.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.cliParser.CliParser`1.ShowSyntax">
+            <summary>
+            Show the parser syntax.
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.Name">
+            <summary>
+            Nom de l'option
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.ShortOpt">
+            <summary>
+            Ecriture courte pour utiliser l'option
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.LongOpt">
+            <summary>
+            Ecriture longue pour utiliser l'option
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.HasArgs">
+            <summary>
+            Définit si l'option a des arguments
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.IsMandatory">
+            <summary>
+            Indique si l'option est requise obligatoirement
+            </summary>
+        </member>
+        <member name="P:AryxDevLibrary.utils.cliParser.Option.IsHiddenInHelp">
+            <summary>
+            Indique si l'option est masquée lors de l'affichage de la syntaxe
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AryxDevLibrary.utils.ConsoleUtils.WriteColor(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:AryxDevLibrary.utils.ConsoleUtils.WriteLineColor(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:AryxDevLibrary.utils.ConsoleUtils.WriteColor(System.String,System.Object[])" -->
+        <!-- Badly formed XML comment ignored for member "M:AryxDevLibrary.utils.ConsoleUtils.WriteLineColor(System.String,System.Object[])" -->
+        <member name="T:AryxDevLibrary.utils.ConsoleUtils.Reader">
+            <summary>
+            Fournit des méthodes pour avoir un Console.Readline avec timeout
+            https://stackoverflow.com/a/18342182
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.ConsoleUtils.Reader.ReadLine(System.Int32)">
+            <summary>
+            Affiche un readline avec timeout.
+            Renvoie une exception, si le timeout est dépassé.
+            </summary>
+            <param name="timeOutMillisecs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.ConsoleUtils.Reader.TryReadLine(System.String@,System.Int32)">
+            <summary>
+            Affiche un readline avec timeout.
+            Renvoie false si le délai est dépassé; true et le texte dans la variable en out sinon.
+            </summary>
+            <param name="line"></param>
+            <param name="timeOutMillisecs"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AryxDevLibrary.utils.DateUtils">
+            <summary>
+            Methods to handle Dates 
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the last date of month of a date.
+            </summary>
+            <param name="date">the date</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the first date of month of a date.
+            </summary>
+            <param name="date">the date</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.IsAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Test if a DateTime object is After an other.
+            </summary>
+            <param name="date">the date to test is after</param>
+            <param name="anotherDate">anotherDate</param>
+            <returns>true if date is after anotherDate. False if not, or equals</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.IsBefore(System.DateTime,System.DateTime)">
+            <summary>
+            Test if a DateTime object is before an other.
+            </summary>
+            <param name="date">the date to test is before</param>
+            <param name="anotherDate">anotherDate</param>
+            <returns>true if date is before anothe rDate. False if not, or equals</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.MinDateTime(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the earliest date between two dates.
+            </summary>
+            <param name="dateA"></param>
+            <param name="dateB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.DateUtils.MaxDateTime(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the most recent date between two dates.
+            </summary>
+            <param name="dateA"></param>
+            <param name="dateB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AryxDevLibrary.utils.FileUtils">
+            <summary>
+            Static methods for file manipulation.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.GetDesktopPath">
+            <summary>
+            Retrieve the path of the desktop (current user).
+            </summary>
+            <returns>the path of the desktop (current user)</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.ShowFileInWindowsExplorer(System.String)">
+            <summary>
+            Displays the file in Windows Explorer. If the file does not exist, Windows Explorer will still be open.
+            </summary>
+            <param name="stringPath">The path of the file to show</param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.ShowFileInWindowsExplorer(System.IO.FileSystemInfo)">
+            <summary>
+            Displays the file in Windows Explorer. If the file does not exist, Windows Explorer will still be open.
+            </summary>
+            <param name="stringPath">The file to show</param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.GetFilesRecursively(System.IO.DirectoryInfo)">
+            <summary>
+            Returns the files list of the active directory, as well as all accessible subdirectories.
+            </summary>
+            <param name="path">The files list of the active directory, as well as all accessible subdirectories</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.GetRelativePath(System.String,System.String)">
+            <summary>
+            Gets the relative path of a file based on a reference folder.
+            </summary>
+            <param name="filePath">The absolute filepath of the file</param>
+            <param name="folder">The reference folder</param>
+            <returns>the relative path of a file based on a reference folder</returns>
+            <example>filepath="C:\Windows\media\Windows Print complete.wav" and folder="C:\Users". Result will be : ..\Windows\media\Windows Print complete.wav</example>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.CopyAccessControl(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Copie les droits ACL d'un fichier à un autre.
+            </summary>
+            <param name="fileSource"></param>
+            <param name="fileTarget"></param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.CopyAccessControl(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Copie les droits ACL d'un dossier à un autre.
+            </summary>
+            <param name="fileSource"></param>
+            <param name="fileTarget"></param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.FileUtils.ChangeExtension(System.IO.FileInfo,System.String)">
+            <summary>
+            Change the file extension.
+            </summary>
+            <param name="file"></param>
+            <param name="newExtension">the new extension, need to start with a dot.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.MiscUtils.LockWorkStation">
+            <summary>
+            Lock Windows Session
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.ProcessUtils.GetCmdLineArgsFromProcess(System.Diagnostics.Process)">
+            <summary>
+            Récupère les arguments de lancement d'un processus.
+            </summary>
+            <param name="process"></param>
+            <returns>les arguments de lancement, ou null si aucun (ou non trouvé)</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.ProcessUtils.GetCmdLineArgsFromProcess(System.Diagnostics.Process,System.Boolean@)">
+            <summary>
+            Récupère les arguments de lancement d'un processus.
+            Renvoie en référence un booléen indiquant si le processus a été trouvé avec ManagementClass.
+            </summary>
+            <param name="process"></param>
+            <param name="processIsFound"></param>
+            <returns>les arguments de lancement, ou null si aucun (ou non trouvé)</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.ProcessUtils.GoTo(System.String)">
+            <summary>
+            Open explorer to point a file.
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:AryxDevLibrary.utils.settings.SettingsObjectMapper`1.LoadFromSettings(System.Configuration.ApplicationSettingsBase)">
+            <summary>
+            Charge les paramètres à partir de la config utilisateur
+            </summary>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.settings.SettingsObjectMapper`1.DtoToSettings(`0,System.Configuration.ApplicationSettingsBase,System.Boolean)">
+            <summary>
+            Sauvegarde les paramètres dans la config utilisateur
+            </summary>
+            <param name="optD"></param>
+            <param name="settings"></param>
+            <param name="andSave"></param>
+        </member>
+        <member name="T:AryxDevLibrary.utils.ShortcutUtils">
+            <summary>
+            Note : when using this class, and using IWshShortcut interface in your project, you will have to use this reference "Interop.IWshRuntimeLibrary".
+            To avoid compilation issues, make sure to set "False" for the property "Embed Interop Types" of the "Interop.IWshRuntimeLibrary" Reference in your project.
+            </summary>
+        </member>
+        <member name="T:AryxDevLibrary.utils.StringUtils">
+            <summary>
+            Static method for Strings.
+            </summary>
+        </member>
+        <member name="F:AryxDevLibrary.utils.StringUtils.AUTH_FILENAME_CHARS">
+            <summary>
+            Characters allowed in a Windows filename.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.SubstringsByLen(System.String,System.Int32)">
+            <summary>
+            Cuts a string, and n parts of delimited lengths.
+            </summary>
+            <param name="str">input string</param>
+            <param name="len">lenght of string to cut</param>
+            <returns>Array of strings</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.Split(System.String,System.String)">
+            <summary>
+            Split a string by another string
+            </summary>
+            <param name="strToSplit">the string to split</param>
+            <param name="splitStr">the string use to split</param>
+            <returns>an array of strings splitted</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.FirstUpperOtherLower(System.String)">
+            <summary>
+            Capitalize the first letter and lower the others.
+            </summary>
+            <param name="str">this string</param>
+            <returns>The string with the first letter upped and lowered the others</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.IsEmpty(System.String)">
+            <summary>
+            Test if a string is empty.
+            </summary>
+            <param name="str">the string to test</param>
+            <returns>true if null, is empty (length = 0 or equals "")</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncate the string with limit lenght
+            </summary>
+            <param name="str">the string to truncate</param>
+            <param name="limit">le lenght to truncate</param>
+            <returns>Returns the truncated string, or the complete string if the limit is greater than or equal to the length of the input string.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.TruncRight(System.String,System.Int32,System.String)">
+            <summary>
+            Trunc a string from the right if string's lenght greater than defined lenght. A suffix can be use for indicate trunc.
+            </summary>
+            <param name="str">The string to truncate</param>
+            <param name="maxLenght">The length from which to truncate</param>
+            <param name="suffix">The suffix to indicate truncate. Default=""</param>
+            <returns>The string with truncate</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.ReplaceFirst(System.String,System.String,System.String)">
+            <summary>
+            Replace the first occurence of a substring in a string.
+            </summary>
+            <param name="str">The string in which to search</param>
+            <param name="search">The substring to search for</param>
+            <param name="replace">The replacement</param>
+            <returns>The string with replacement done if exists.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.RemoveDiacritics(System.String)">
+            <summary>
+            Remove diacritics acent in a string.
+            Source : https://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
+            </summary>
+            <param name="text">the string</param>
+            <returns>the string without diacritics accents</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.RemoveCharDifferentThan(System.String,System.String)">
+            <summary>
+            Removes characters in a string from a set of characters (placed in a string).
+            </summary>
+            <param name="str">The string in which to work</param>
+            <param name="charList">the set of characters</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Check if a string is null, or contains only whitespaces.
+            
+            Same role that IsNullOrWhiteSpace(...) in .Net Framework 4
+            </summary>
+            <param name="str">The string to test</param>
+            <returns>true if string is null, empty or contains only whitespace.</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.TextOrDefault(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns a string if not null, or a default text if not.
+            </summary>
+            <param name="text">the text</param>
+            <param name="defaut">default string</param>
+            <param name="isTestEmpty"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.Matches(System.String,System.String)">
+            <summary>
+            Tells whether or not this string matches the given regular expression.
+            </summary>
+            <param name="text">the input string to test</param>
+            <param name="regex">the regular expression to which this string is to be matched</param>
+            <returns>true if, and only if, this string matches the given regular expression</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.CsvStringContains(System.String,System.String,System.Char)">
+            <summary>
+            Tests if a string is contained in an array of elements, separated by a semicolon like a CSV line.
+            </summary>
+            <param name="toSearch">String to search</param>
+            <param name="csvSepString">String where to search</param>
+            <param name="sepChar">The separator. Semicolon by default</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.RandomString(System.Int32,System.String,System.Boolean)">
+            <summary>
+            Return a string with random char and with a defined lenght. Charset is customizable.
+            </summary>
+            <param name="length">Lenght of the string</param>
+            <param name="charSet">The charset</param>
+            <param name="ensureUnique">If true, ensures that the generated string has not already been generated previously. Use the ClearRandomStringCache() method to clean the string cache already generated.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.ClearRandomStringCache">
+            <summary>
+            Cleans the cache of strings generated with the RandomString() method.
+            </summary>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.SafeEquals(System.String,System.String)">
+            <summary>
+            Safe string equality. Can handle two null strings
+            </summary>
+            <param name="strA"></param>
+            <param name="strB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.StringUtils.NumberToText(System.Int32)">
+            <summary>
+            Converts an integer into its textual form. The output is only in France-French.
+            </summary>
+            <param name="n">the integer to convert to</param>
+            <returns>The textual form of integer. France-French only</returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.XmlUtils.GetElementXpath(System.Xml.XmlNode,System.String,System.Xml.XmlNamespaceManager)">
+            <summary>
+            Alias de XmlUtils.getNodeXpath(...).
+            </summary>
+            <param name="root"></param>
+            <param name="xpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AryxDevLibrary.utils.XmlUtils.GetElementsXpath(System.Xml.XmlNode,System.String,System.Xml.XmlNamespaceManager)">
+            <summary>
+            Alias de XmlUtils.getElementsXpath(...).
+            </summary>
+            <param name="root"></param>
+            <param name="xpath"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
