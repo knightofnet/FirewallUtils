@@ -110,7 +110,7 @@ namespace PocFwIpApp.view.page
 
             linkIn.Click += (sender, args) => LinkClick(DirectionsEnum.Inboud, ProtocoleEnum.ALL);
             linkOut.Click += (sender, args) => LinkClick(DirectionsEnum.Outbound, ProtocoleEnum.ALL);
-            
+
 
         }
 
@@ -270,7 +270,9 @@ namespace PocFwIpApp.view.page
 
             RefreshListBoxes(lstTcp, lstUdp, true);
 
-            Superior.ToggleRectForCollectIp(false);
+            Superior.ToggleRectForCollectIp(false); 
+
+
 
         }
 
@@ -469,7 +471,7 @@ namespace PocFwIpApp.view.page
                 eventsCollector = null;
                 lboxTcpOut.Items.Clear();
                 lboxUdpOut.Items.Clear();
-                
+
                 SessionFileInfo = fi;
                 log.Debug("Session chargée avec : {0}", fi.FullName);
 
@@ -514,6 +516,11 @@ namespace PocFwIpApp.view.page
 
             btnCollect.Content = "Collecter";
 
+            if (collectBackgroundWorker != null)
+            {
+                collectBackgroundWorker = null;
+            }
+
         }
 
         private void tExeName_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -539,7 +546,7 @@ namespace PocFwIpApp.view.page
 
         public void StopCollectFor(FileInfo filePath)
         {
-            if (filePath == null) return;
+            if (filePath == null || SessionFileInfo == null) return;
             if (filePath.FullName.Equals(SessionFileInfo.FullName) && IsBusy)
             {
                 StopCollecteBackgrounder();
@@ -589,7 +596,7 @@ namespace PocFwIpApp.view.page
                 {
                     rule.Enabled = !isAllEnabled;
                 }
-                
+
             }
 
             InitLinks();

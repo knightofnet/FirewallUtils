@@ -123,6 +123,51 @@ namespace PocFwIpApp.utils
             }
         }
 
+        public static bool RemoveRule(string getName, DirectionsEnum getDirection)
+        {
+            try
+            {
+                String uniqueS = StringUtils.RandomString(8, ensureUnique: true);
+
+                INetFwRule firewallRule = (INetFwRule)Activator.CreateInstance(
+                    Type.GetTypeFromProgID("HNetCfg.FWRule"));
+
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(
+                    Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+
+
+                foreach (INetFwRule fwRule in firewallPolicy.Rules)
+                {
+
+                    if (fwRule.Name != null)
+                    {
+
+                        if (fwRule.Name.Equals(getName) )
+                        {
+                            //   log.Debug("GetRule n:{0} p:{1} OK ({2})", getName, getProtocole, uniqueS);
+                            if (getDirection == DirectionsEnum.NULL ||
+                                getDirection == FwRuleDirectionToDirectionEnum(fwRule.Direction))
+                            {
+
+                                firewallPolicy.Rules.Remove(fwRule.Name);
+                                return true;
+                            }
+                        }
+
+                    }
+                }
+
+
+                //log.Debug("GetRule {0} {1} {2} => null" + uniqueS, getName, getDirection, getProtocole);
+                return false;
+            }
+            catch (Exception e)
+            {
+                ExceptionHandlingUtils.LogAndHideException(e, "RemoveRule");
+                return false;
+            }
+        }
+
         public static List<INetFwRule> GetRuleNameRegex(string regex, DirectionsEnum getDirection, ProtocoleEnum getProtocole)
         {
             List<INetFwRule> retListRules = new List<INetFwRule>();

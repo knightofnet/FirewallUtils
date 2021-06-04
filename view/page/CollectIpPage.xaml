@@ -24,9 +24,10 @@
             <Label x:Name="lExeName" Content="" HorizontalAlignment="Left" Margin="63,32,0,0" VerticalAlignment="Top"/>
 
 
-            <GroupBox x:Name="gpCollect" Header="Collecte" Margin="10,163,10,9.6" Grid.RowSpan="2">
+            <GroupBox x:Name="gpCollect" Header="Collecte" Margin="10,125,10,9.6" Grid.RowSpan="2">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
                         <RowDefinition Height="9*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
@@ -34,22 +35,30 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lTcp" Content="Sortant - Protocol TCP :" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-                    <ListBox x:Name="lboxTcpOut" Margin="10,26,10,10"/>
-
-                    <Label x:Name="lUdp" Content="Sortant - Protocol UDP :" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <ListBox x:Name="lboxUdpOut" Margin="10,26,10,10" Grid.Column="1"/>
 
 
-                    <Button x:Name="btnCollect" Content="Collecter" HorizontalAlignment="Left" Margin="10,0,0,4.2" VerticalAlignment="Bottom" Width="75" Click="btnCollect_Click" Grid.Row="1"/>
-                    <CheckBox x:Name="cAutoCreate" Content="Créer les règles automatiquement" HorizontalAlignment="Left" Margin="90,0,0,6.2" VerticalAlignment="Bottom" Grid.Row="1" Grid.ColumnSpan="2" Width="213"/>
 
-                    <Button x:Name="btnCreate" Content="Créer les règles" HorizontalAlignment="Right" Width="102" Click="btnCreate_Click" Grid.Column="1" Grid.Row="1" Margin="0,0,10,3.2" Height="19" VerticalAlignment="Bottom"/>
+                    <Label x:Name="lTcp" Content="Sortant - Protocol TCP :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0.2,0,0" Grid.Row="1"/>
+
+                    <ListBox x:Name="lboxTcpOut" Margin="10,26.2,10,9.8" Grid.Row="1"/>
+
+                    <Label x:Name="lUdp" Content="Sortant - Protocol UDP :" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="0,0.2,0,0" Grid.Row="1"/>
+                    <ListBox x:Name="lboxUdpOut" Margin="10,26.2,10,9.8" Grid.Column="1" Grid.Row="1"/>
+
+
+                    <Button x:Name="btnCollect" Content="Collecter" HorizontalAlignment="Left" Margin="10,0,0,3.8" VerticalAlignment="Bottom" Width="75" Click="btnCollect_Click" Grid.Row="2"/>
+                    <CheckBox x:Name="cAutoCreate" Content="Créer les règles automatiquement" HorizontalAlignment="Left" Margin="90,0,0,5.8" VerticalAlignment="Bottom" Grid.Row="2" Grid.ColumnSpan="2" Width="213"/>
+
+                    <Button x:Name="btnCreate" Content="Créer les règles" HorizontalAlignment="Right" Width="102" Click="btnCreate_Click" Grid.Column="1" Grid.Row="2" Margin="0,0,10,2.8" Height="19" VerticalAlignment="Bottom"/>
+                    <Label x:Name="label" Grid.ColumnSpan="2" Margin="0,0,0,4.8">
+                        <AccessText TextWrapping="Wrap">
+                            La détection des adresses IP qu'un processus tente d'accéder nécessite l'activation de l'audit de suivi des objets et des processus dans les paramètres de Stratégie d'audit.
+                        </AccessText>
+                    </Label>
 
                 </Grid>
             </GroupBox>
-            <GroupBox x:Name="gpRuleFw" Header="Règles du pare-feu du programme" Height="95" Margin="10,63,10,0" VerticalAlignment="Top">
+            <GroupBox x:Name="gpRuleFw" Header="Règles du pare-feu du programme" Height="57" Margin="10,63,10,0" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>

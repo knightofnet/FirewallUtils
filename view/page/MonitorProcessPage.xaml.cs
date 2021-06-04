@@ -56,7 +56,7 @@ namespace PocFwIpApp.view.page
 
         private ProcessFwruleManager _pfManager;
 
-        
+
         public MonitorProcessPage(IMainWindow mainWindow)
         {
             Page = this;
@@ -64,7 +64,7 @@ namespace PocFwIpApp.view.page
             InitializeComponent();
 
             RunTrt();
-            
+
         }
 
         private void RunTrt()
@@ -172,9 +172,13 @@ namespace PocFwIpApp.view.page
                 {
                     MessageBox.Show("Le fichier n'est pas disponible.", "Titre", MessageBoxButton.OK);
                     tFilepath.Focus();
-                    
+
+                    tFilepath.Background = new SolidColorBrush(Colors.Red);
+
                     return;
                 }
+
+                tFilepath.Background = null;
 
                 p.FilePath = new FileInfo(tFilePath);
                 Superior.GetConfManager().UpdProcessFileFwRule(p);
@@ -198,9 +202,7 @@ namespace PocFwIpApp.view.page
 
             AppPages.ClosePage += AppPagesOnClosePage;
         }
-
-
-
+        
 
         private bool IsPageBusy()
         {
@@ -230,7 +232,7 @@ namespace PocFwIpApp.view.page
 
             listProcessToMonitor.Items.Refresh();
             AppPages.CollectIpPage.Refresh();
-           AdaptUiForSelectedProcess();
+            AdaptUiForSelectedProcess();
         }
 
 
@@ -263,16 +265,24 @@ namespace PocFwIpApp.view.page
         private void AdaptUiForProcess(ProcessFileFwRule p)
         {
             tbRuleName.Text = p.RuleName;
+            tFilepath.Background = null;
 
             if (!tFilepath.IsFocused)
             {
                 tFilepath.Text = p.FilePath.FullName;
+                if (!p.FilePath.Exists)
+                {
+                    tFilepath.Background = new SolidColorBrush(Colors.Red);
+                }
             }
+
 
             cIsModeManuel.IsChecked = p.IsModeManuel;
             cIsEnableFilenameOnly.IsChecked = p.IsEnableOnlyFileName;
 
             lblProcEnable.Content = p.IsProcessUp ? "actif" : "non lancé";
+
+            lblProtocole.Content = p.DirectionProtocol.Protocol;
         }
 
         public ProcessFileFwRule GetSelectedItem()
@@ -290,7 +300,7 @@ namespace PocFwIpApp.view.page
 
         private void AppPagesOnClosePage(object sender, ClosePageHandlerArgs args)
         {
-           
+
             /*if (_pfManager == null || !_pfManager.FileFwRules.Any()) return;
 
             foreach (ProcessFileFwRule p in _pfManager.FileFwRules)
